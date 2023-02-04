@@ -18,5 +18,5 @@
     become_user: root
   
   - name: to deploy docker image 
-    command: docker run -itd -p 8090:8091 sarthakwaghpatil/insure-me-project:1.0
+    command: docker run -itd -p 8091:8091 sarthakwaghpatil/insure-me-project:1.0
 

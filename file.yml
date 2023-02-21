@@ -16,6 +16,5 @@
     command: sudo systemctl start docker
     become: yes
     become_user: root
-  
   - name: to deploy docker image 
     command: docker run -itd -p 8091:8091 sarthakwaghpatil/insure-me-project:1.0

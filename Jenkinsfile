@@ -51,7 +51,10 @@ node{
         ansiblePlaybook become: true, credentialsId: 'ansible-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'file.yml'
     }
     }
-    
+    stage('to run selenium script'){
+    echo "run java test app"
+    sh 'sudo java -jar selenium-app.jar'
+    }
     
     
 

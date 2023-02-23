@@ -52,8 +52,8 @@ node{
     }
     }
     stage('to run selenium script'){
-    echo "run java test app"
-    sh 'sudo java -jar selenium-app.jar'
+        echo "run java test app"
+        sh 'sudo java -jar selenium-app.jar'
     }
     
     

@@ -23,7 +23,7 @@ jobs:
     - name: Build Docker image
       run: |
         docker build . --file Dockerfile \
-          --tag ${{ secrets.DOCKER_USERNAME }}/insure-me:2.0 \
+          --tag ${{ variabbles.DOCKER_USERNAME }}/insure-me:2.0 \
           --tag ${{ secrets.DOCKER_USERNAME }}/insure-me:${{ github.sha }}
 
     # Step 5: Push Docker image

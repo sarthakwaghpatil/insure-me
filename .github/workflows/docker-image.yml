@@ -39,6 +39,11 @@ jobs:
         docker push "${{ secrets.DOCKER_USERNAME }}"/insure-me:latest
        # docker push "${{ secrets.DOCKER_USERNAME }}"/insure-me:${{ github.sha }}
 
+    - name: run and validate image
+      run: |
+        hostname -I
+        docker run -p 8091:8091 sarthakwaghpatil/insure-me:2.0
+
 
 
         

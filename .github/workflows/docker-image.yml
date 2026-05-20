@@ -41,8 +41,16 @@ jobs:
 
     - name: run and validate image
       run: |
-        hostname -I
-        docker run -p 8091:8091 sarthakwaghpatil/insure-me:2.0
+        docker run -d -p 8091:8091 --hostname $(hostname -I | awk '{print $1}') ${{ secrets.DOCKER_USERNAME }}"/insure-me:latest
+    
+    - name: Curl container via runner IP
+      run: |
+      # Get the first IP address of the runner
+        HOST_IP=$(hostname -I | awk '{print $1}')
+        echo "Runner IP is: $HOST_IP"
+    
+    # Curl the Spring Boot app on port 8091
+        curl http://$HOST_IP:8091
 
 
 

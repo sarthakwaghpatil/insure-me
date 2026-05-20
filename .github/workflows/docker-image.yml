@@ -42,6 +42,7 @@ jobs:
     - name: run and validate image
       run: |
         docker run -itd -p 8091:8091 "${{ secrets.DOCKER_USERNAME }}"/insure-me:latest
+        sleep 5
         curl http://localhost:8091
 
 

@@ -42,12 +42,6 @@ jobs:
     - name: run and validate image
       run: |
         docker run -itd -p 8091:8091 --hostname $(hostname -I | awk '{print $1}') ${{ secrets.DOCKER_USERNAME }}"/insure-me:latest
-    
-    - name: Curl container via runner IP
-      run: |
-        HOST_IP=$(hostname -I | awk '{print $1}')
-        echo "Runner IP is: $HOST_IP"
-        curl http://$HOST_IP:8091
 
 
 

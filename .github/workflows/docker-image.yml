@@ -14,9 +14,9 @@ jobs:
     # Step 1: Checkout code
     - uses: actions/checkout@v4
 
-    # Step 2: Verify Docker is available
-    - name: Check Docker version
-      run: docker --version
+    # Step 2: use maven
+    - name: build package
+      run: mvn clean package
 
 
     # Step 4: Build Docker image with multiple tags

@@ -17,7 +17,6 @@ jobs:
     # Step 2: Install Docker (runner already has Docker, but ensure latest)
     - name: Install Docker
       run: |
-        sudo apt-get update
         sudo apt-get install -y docker.io
         sudo systemctl start docker
         sudo systemctl enable docker

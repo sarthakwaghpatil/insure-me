@@ -29,5 +29,5 @@ jobs:
     # Step 5: Push Docker image
     - name: Push Docker image
       run: |
-        docker push ${{ vars.DOCKER_USERNAME }}/insure-me:2.0
-        docker push ${{ vars.DOCKER_USERNAME }}/insure-me:${{ github.sha }}
+        docker push sarthakwaghpatil/insure-me:2.0
+        docker push sarthakwaghpatil/insure-me:${{ github.sha }}

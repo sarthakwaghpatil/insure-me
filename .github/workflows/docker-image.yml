@@ -19,20 +19,17 @@ jobs:
       run: mvn clean package
       
     - name: Log in to DockerHub
-      uses: docker/login-action@v3
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: dckr_pat_0OTGLU4btgE-MWVnFUn2gnsb9ys
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
     # Step 4: Build Docker image with multiple tags
     - name: Build Docker image
       run: |
         docker build . --file Dockerfile \
-          --tag ${{ secrets.DOCKER_USERNAME }}/insure-me:2.0 \
-          --tag ${{ secrets.DOCKER_USERNAME }}/insure-me:${{ github.sha }}
+          --tag "${{ secrets.DOCKER_USERNAME }}"/insure-me:2.0 \
+          --tag "${{ secrets.DOCKER_USERNAME }}"/insure-me:${{ github.sha }}
 
     # Step 5: Push Docker image
     - name: Push Docker image
       run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/insure-me:2.0
-        docker push ${{ secrets.DOCKER_USERNAME }}/insure-me:${{ github.sha }}
+        docker push "${{ secrets.DOCKER_USERNAME }}"/insure-me:2.0
+        docker push "${{ secrets.DOCKER_USERNAME }}"/insure-me:${{ github.sha }}

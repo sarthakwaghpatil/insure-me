@@ -21,7 +21,7 @@ jobs:
     # Step 3: Log in to DockerHub using secrets
     - name: Log in to DockerHub
       run: 
-        docker login -u ${{ secrets.DOCKER_USERNAME }}
+        docker login -u sarthakwaghpatil
         ${{ secrets.DOCKER_PASSWORD }}
 
     # Step 4: Build Docker image with multiple tags

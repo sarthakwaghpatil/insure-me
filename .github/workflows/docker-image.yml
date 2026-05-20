@@ -33,3 +33,7 @@ jobs:
       run: |
         docker push "${{ secrets.DOCKER_USERNAME }}"/insure-me:latest
         docker push "${{ secrets.DOCKER_USERNAME }}"/insure-me:${{ github.sha }}
+
+
+
+        

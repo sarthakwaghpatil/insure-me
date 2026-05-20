@@ -23,11 +23,11 @@ jobs:
     - name: Build Docker image
       run: |
         docker build . --file Dockerfile \
-          --tag ${{ variabbles.DOCKER_USERNAME }}/insure-me:2.0 \
-          --tag ${{ secrets.DOCKER_USERNAME }}/insure-me:${{ github.sha }}
+          --tag ${{ vars.DOCKER_USERNAME }}/insure-me:2.0 \
+          --tag ${{ vars.DOCKER_USERNAME }}/insure-me:${{ github.sha }}
 
     # Step 5: Push Docker image
     - name: Push Docker image
       run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/insure-me:2.0
-        docker push ${{ secrets.DOCKER_USERNAME }}/insure-me:${{ github.sha }}
+        docker push ${{ vars.DOCKER_USERNAME }}/insure-me:2.0
+        docker push ${{ vars.DOCKER_USERNAME }}/insure-me:${{ github.sha }}
